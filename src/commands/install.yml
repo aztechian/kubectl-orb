@@ -1,0 +1,14 @@
+description: >
+  Install the desired version of kubectl utility executable in your job
+
+parameters:
+  version:
+    type: string
+    default: 1.19.9
+    description: Full version number of kubectl to install
+steps:
+  - run:
+      environment:
+        KUBECTL_VERSION: <<parameters.version>>
+      name: Install Kubectl
+      command: <<include(scripts/install.sh)>>
