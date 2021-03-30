@@ -10,5 +10,5 @@ steps:
   - run:
       environment:
         KUBECTL_VERSION: <<parameters.version>>
-      name: install
+      name: Install Kubectl
       command: <<include(scripts/install.sh)>>
