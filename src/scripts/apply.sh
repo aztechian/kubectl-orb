@@ -12,7 +12,7 @@ apply() {
         cmd="${cmd} --namespace ${NAMESPACE}"
     fi
 
-    eval "${cmd} -f $@"
+    eval "${cmd} -f $*"
 }
 
 # Will not run if sourced for bats-core tests.
