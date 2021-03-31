@@ -11,3 +11,8 @@ setup() {
     result=$(get_cpu)
     [ "$result" == "amd64" ]
 }
+
+@test '2: test Arch detection' {
+    result=$(get_arch)
+    [ "$result" == "linux" ]
+}

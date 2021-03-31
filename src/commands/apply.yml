@@ -1,0 +1,23 @@
+description: >
+  Apply a file to your cluster with kubectl
+
+parameters:
+  context:
+    type: string
+    default: ""
+    description: kubectl configuration context to use
+  namespace:
+    type: string
+    default: default
+    description: The namespace where resources should be deployed
+  file:
+    type: string
+    default: deploy
+    description: File or directory to be deployed
+steps:
+  - run:
+      environment:
+        CONTEXT: <<parameters.context>>
+        NAMESPACE: <<parameters.namespace>>
+      name: Kubectl Apply
+      command: <<include(scripts/apply.sh)>>
