@@ -1,5 +1,7 @@
 #!/bin/bash
 
+if [[ $EUID == 0 ]]; then export SUDO=""; else export SUDO="sudo"; fi
+
 get_arch() {
     uname | tr '[:upper:]' '[:lower:]'
 }
