@@ -1,9 +1,12 @@
+#!/bin/bash
+
 get_arch() {
     uname | tr '[:upper:]' '[:lower:]'
 }
 
 get_cpu() {
-    local cpu="$(uname -m)"
+    local cpu
+    cpu="$(uname -m)"
     case "$cpu" in
     'x86_64') cpu="amd64" ;;
     'arm64') cpu="amd64" ;; #hack for apple silicon - use x86 with Rosetta
@@ -13,7 +16,8 @@ get_cpu() {
 }
 
 install() {
-    local platform="$(get_arch)"
+    local platform
+    platform="$(get_arch)"
     curl -s -O "https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/${platform}/$(get_cpu)/kubectl"
     $SUDO mv kubectl /usr/local/bin
 }
