@@ -1,0 +1,23 @@
+description: >
+  Applies a file via kubectl
+
+executor: default
+
+parameters:
+  file:
+    type: string
+    default: deploy
+    description: Deploys a file via kubectl
+  kubecontext:
+    type: string
+    default: ""
+    description: Kubeconfig context to use
+  namespace:
+    type: string
+    default: default
+    description: Namespace to deploy into
+steps:
+  - apply:
+      file: <<parameters.file>>
+      context: <<parameters.kubecontext>>
+      namespace: <<parameters.namespace>>
