@@ -1,5 +1,5 @@
 description: >
-  Install the desired version of kubectl utility executable in your job
+  Install the desired version of kubectl executable in your job
 
 parameters:
   version:
