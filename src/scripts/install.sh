@@ -22,6 +22,7 @@ install() {
     platform="$(get_arch)"
     curl -s -O "https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/${platform}/$(get_cpu)/kubectl"
     $SUDO mv kubectl /usr/local/bin
+    $SUDO chmod 755 /usr/local/bin/kubectl
 }
 
 # Will not run if sourced for bats-core tests.
