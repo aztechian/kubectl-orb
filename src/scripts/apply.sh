@@ -12,7 +12,7 @@ build_cmd() {
         cmd="${cmd} --namespace ${NAMESPACE}"
     fi
 
-    eval "${cmd} -f $*"
+    echo "${cmd} -f $*"
 }
 
 apply() {
